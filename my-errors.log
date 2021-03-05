@@ -1,0 +1,84 @@
+createOrderFromCart START:  
+Insert new Order detail list:  
+createList in OrderDetail.php :  
+Product Name  : Brown bear - Vector graphics 
+ >>> ORDER DETAILE <<<  
+ product_quantity  
+ CheckProductStock - Start 
+ ///checkProductStock///// START ///////// 
+ PS_OS_CANCELED -> : 6  
+ PS_OS_ERROR -> : 8  
+ CURRENT ID as PARAM  -> : 9  
+ /--> Step 1 <--/ 
+ 	 StockAvalible.php -> updateQuantity -> DDDDDD 
+ 	 StockManager.php -> updateQuantity -> 2222222222222 
+ 	 StockManager.php -> updateQuantity -> product -> id : 13 
+ 	 StockManager.php -> updateQuantity -> id_product_attribute : 0 
+ 	 StockManager.php -> updateQuantity -> delta_quantity : -1 
+ 	 StockManager.php -> updateQuantity -> add_movement : 1 
+ IF STOC MVT  
+ AFTER SymfonyContainer - getInstance  
+ SymfonyContainer - getInstance  NOT NULL 
+createOrderFromCart START:  
+Insert new Order detail list:  
+createList in OrderDetail.php :  
+Product Name  : Mountain fox - Vector graphics 
+ >>> ORDER DETAILE <<<  
+ product_quantity  
+ CheckProductStock - Start 
+ ///checkProductStock///// START ///////// 
+ PS_OS_CANCELED -> : 6  
+ PS_OS_ERROR -> : 8  
+ CURRENT ID as PARAM  -> : 9  
+ /--> Step 1 <--/ 
+ 	 StockAvalible.php -> updateQuantity -> DDDDDD 
+ 	 StockManager.php -> updateQuantity -> 2222222222222 
+ 	 StockManager.php -> updateQuantity -> product -> id : 12 
+ 	 StockManager.php -> updateQuantity -> id_product_attribute : 0 
+ 	 StockManager.php -> updateQuantity -> delta_quantity : -1 
+ 	 StockManager.php -> updateQuantity -> add_movement : 1 
+ IF STOC MVT  
+ AFTER SymfonyContainer - getInstance  
+ SymfonyContainer - getInstance  NOT NULL 
+createOrderFromCart START:  
+Insert new Order detail list:  
+createList in OrderDetail.php :  
+Product Name  : Mountain fox - Vector graphics 
+ >>> ORDER DETAILE <<<  
+ product_quantity  
+ CheckProductStock - Start 
+ ///checkProductStock///// START ///////// 
+ PS_OS_CANCELED -> : 6  
+ PS_OS_ERROR -> : 8  
+ CURRENT ID as PARAM  -> : 9  
+ /--> Step 1 <--/ 
+ 	 StockAvalible.php -> updateQuantity -> DDDDDD 
+ 	 StockManager.php -> updateQuantity -> 2222222222222 
+ 	 StockManager.php -> updateQuantity -> product -> id : 12 
+ 	 StockManager.php -> updateQuantity -> id_product_attribute : 0 
+ 	 StockManager.php -> updateQuantity -> delta_quantity : -1 
+ 	 StockManager.php -> updateQuantity -> add_movement : 1 
+ IF STOC MVT  
+ AFTER SymfonyContainer - getInstance  
+ SymfonyContainer - getInstance  NOT NULL 
+createOrderFromCart START:  
+Insert new Order detail list:  
+createList in OrderDetail.php :  
+Product Name  : Pack Mug + Framed poster 
+ >>> ORDER DETAILE <<<  
+ product_quantity  
+ CheckProductStock - Start 
+ ///checkProductStock///// START ///////// 
+ PS_OS_CANCELED -> : 6  
+ PS_OS_ERROR -> : 8  
+ CURRENT ID as PARAM  -> : 9  
+ /--> Step 1 <--/ 
+ 	 StockAvalible.php -> updateQuantity -> DDDDDD 
+ 	 StockManager.php -> updateQuantity -> 2222222222222 
+ 	 StockManager.php -> updateQuantity -> product -> id : 15 
+ 	 StockManager.php -> updateQuantity -> id_product_attribute : 0 
+ 	 StockManager.php -> updateQuantity -> delta_quantity : -1 
+ 	 StockManager.php -> updateQuantity -> add_movement : 1 
+ IF STOC MVT  
+ AFTER SymfonyContainer - getInstance  
+ SymfonyContainer - getInstance  NOT NULL 
