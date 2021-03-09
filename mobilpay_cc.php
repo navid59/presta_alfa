@@ -424,9 +424,18 @@ class Mobilpay_cc extends PaymentModule
 
             $objPmReqCard->orderId = intval($params['cart']->id) . '#' . time();
             $objPmReqCard->returnUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php?controller=order-confirmation?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_module=' . intval($this->id);
+            
+            
+            /**
+             * Confirm URL
+             */
             $objPmReqCard->confirmUrl = $this->getPath() . 'validation.php?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_currency=' . intval($currency->id) . '&amp;id_module=' . intval($this->id);
-            $objPmReqCard->cancelUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php';
+            //$objPmReqCard->confirmUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ .'module/mobilpay_cc/alfavalidation?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_currency=' . intval($currency->id) . '&amp;id_module=' . intval($this->id);
+            //$objPmReqCard->confirmUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;fc=module&amp;module=mobilpay_cc&amp;controller=alfavalidation&amp;isolang=en&amp;id_lang=1';
+            // $objPmReqCard->confirmUrl = 'http://navid.ctbhub.com/index.php?fc=module&module=mobilpay_cc&controller=alfavalidation&isolang=en&id_lang=1';
+            // $objPmReqCard->confirmUrl = 'http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation';
 
+            $objPmReqCard->cancelUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php';
             $objPmReqCard->invoice = new Mobilpay_Payment_Invoice();
 
             // $objPmReqCard->invoice->currency = 'RON'; /*$currency_module->iso_code;*/
@@ -530,5 +539,5 @@ class Mobilpay_cc extends PaymentModule
         if($seperator)
             file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", " === ".$justName." ================ END === \r\n", FILE_APPEND);
         }
-
+    
 }
