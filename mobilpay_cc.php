@@ -346,7 +346,7 @@ class Mobilpay_cc extends PaymentModule
      * NEED TO CHECK , !!!!!
      */
     public function hookPaymentReturn($params)
-    {
+    {        
         if (!$this->active) {
             return;
         }
@@ -358,7 +358,7 @@ class Mobilpay_cc extends PaymentModule
      * Base on CART Information
      * Looks Not need to be rewrite !!!!
      */
-    function validateOrder(
+    /*function validateOrder(
         $id_cart,
         $id_order_state,
         $amount_paid,
@@ -375,11 +375,10 @@ class Mobilpay_cc extends PaymentModule
         }
 
         
-        file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", print_r("Mobilpay_cc.php -> validatOrder -> Card ID : ".$id_cart, true)."\r\n", FILE_APPEND);
-
+        
         parent::validateOrder($id_cart, $id_order_state, $amount_paid, $payment_method, $message, $extra_vars, $currency_special, true, $secure_key, $shop);
         // Module::validateOrder($id_cart, $id_order_state, $amount_paid, $payment_method, $message, $extra_vars, $currency_special, true, $secure_key, $shop);
-    }
+    }*/
 
     
     /**
@@ -429,11 +428,9 @@ class Mobilpay_cc extends PaymentModule
             /**
              * Confirm URL
              */
-            $objPmReqCard->confirmUrl = $this->getPath() . 'validation.php?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_currency=' . intval($currency->id) . '&amp;id_module=' . intval($this->id);
-            //$objPmReqCard->confirmUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ .'module/mobilpay_cc/alfavalidation?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_currency=' . intval($currency->id) . '&amp;id_module=' . intval($this->id);
-            //$objPmReqCard->confirmUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;fc=module&amp;module=mobilpay_cc&amp;controller=alfavalidation&amp;isolang=en&amp;id_lang=1';
-            // $objPmReqCard->confirmUrl = 'http://navid.ctbhub.com/index.php?fc=module&module=mobilpay_cc&controller=alfavalidation&isolang=en&id_lang=1';
-            // $objPmReqCard->confirmUrl = 'http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation';
+             //$objPmReqCard->confirmUrl = $this->getPath() . 'validation.php?key=' . $customer->secure_key . '&amp;id_cart=' . intval($params['cart']->id) . '&amp;id_currency=' . intval($currency->id) . '&amp;id_module=' . intval($this->id);
+            $objPmReqCard->confirmUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ .'module/mobilpay_cc/betavalidation';
+            
 
             $objPmReqCard->cancelUrl = 'http://' . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT,'UTF-8') . __PS_BASE_URI__ . 'index.php';
             $objPmReqCard->invoice = new Mobilpay_Payment_Invoice();
@@ -519,13 +516,14 @@ class Mobilpay_cc extends PaymentModule
         return [$payment_options];
     }
 
+    
 
     /**
      * Set Log #1
      */
     public function setLog($str)
         {
-        error_log($str." \r\n", 3, "/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-errors.log");
+            //
         }
     
     /**
@@ -533,11 +531,7 @@ class Mobilpay_cc extends PaymentModule
      */
     public function setLogObj($obj, $justName = null, $seperator = false)
         {
-        if($seperator)
-            file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", " === ".$justName." ================ START === \r\n", FILE_APPEND);
-        file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", print_r($obj, true)."\r\n", FILE_APPEND);
-        if($seperator)
-            file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", " === ".$justName." ================ END === \r\n", FILE_APPEND);
+            //
         }
     
 }

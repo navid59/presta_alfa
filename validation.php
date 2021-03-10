@@ -141,27 +141,64 @@ if(!empty($objPmReq->orderId) && $objPmReq->objPmNotify->errorCode == 0) {
     /**
      * CALL NEW CONTROLLER HERE
      */
-  
-    //  $myCron = new Cron();
-    //  $myCron->myCron();
-
-    Mobilpay_cc::setLogObj( "---- IPN -> BEFORE -> Alfa VALIDATION ", null,  false);
-
-    $alfaLink = Context::getContext()->link->getModuleLink('mobilpay_cc', 'alfavalidation', array());
+    // $alfaLink = Context::getContext()->link->getModuleLink('mobilpay_cc', 'alfavalidation', array());
+    // header("Location: http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation/"); // Error 302
+    // die();
+    /**
+     * Another Method - Start
+     */
+    // $postdata = http_build_query(
+    //     array(
+    //         'var1' => 'some content',
+    //         'var2' => 'doh'
+    //     )
+    // );
     
-    Mobilpay_cc::setLogObj( $alfaLink, null,  false);
-    Mobilpay_cc::setLogObj( dirname(__FILE__) , "Current Path",  false);
+    // $opts = array('http' =>
+    //     array(
+    //         'method'  => 'POST',
+    //         'header'  => 'Content-Type: application/x-www-form-urlencoded',
+    //         'content' => $postdata
+    //     )
+    // );
     
-    //require_once dirname(__FILE__) . '/../../index.php';
-
-    Mobilpay_cc::setLogObj( "---- IPN -> AFTER -> Alfa VALIDATION ", null,  false);
-
+    // $context  = stream_context_create($opts);
+    // $result = file_get_contents($alfaLink, false, $context);
+    /**
+     * Another Method - END
+     */
+    
+    // $controller = $Mobilpay_cc->getModuleFrontControllerInstance();
+    
     //create the order
-    //$Mobilpay_cc->validateOrder($objPmReq->orderId, intval(Configuration::get('MPCC_OS_'.strtoupper($objPmReq->objPmNotify->action))), floatval($objPmReq->invoice->amount), $Mobilpay_cc->displayName, NULL, array(), NULL, false, $customer->secure_key);  
+    $Mobilpay_cc->validateOrder($objPmReq->orderId, intval(Configuration::get('MPCC_OS_'.strtoupper($objPmReq->objPmNotify->action))), floatval($objPmReq->invoice->amount), $Mobilpay_cc->displayName, NULL, array(), NULL, false, $customer->secure_key);  
     //$Mobilpay_cc->validateOrder($realOrderId, intval(Configuration::get('MPCC_OS_'.strtoupper($objPmReq->objPmNotify->action))), floatval($objPmReq->invoice->amount), $Mobilpay_cc->displayName, NULL, array(), NULL, false, $customer->secure_key);  
      
   }
 }
+
+/*
+if (headers_sent()) {
+  die("Redirect failed. Please click on this link: <a href=...>");
+}
+else{
+  ?>
+    <!DOCTYPE html>
+    <html>
+    <body onload="updateDB();">
+    </body>
+    <script language="javascript">
+      function updateDB() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation", true);
+        xhr.send(null);
+      }
+    </script>
+  </html>
+  <?php
+  die();
+}
+*/
 
 header('Content-type: application/xml');
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";

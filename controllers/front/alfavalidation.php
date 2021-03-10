@@ -20,6 +20,10 @@ class Mobilpay_CcAlfavalidationModuleFrontController extends ModuleFrontControll
 		/*
          * If the module is not active anymore, no need to process anything.
          */
+
+		header('x-active:'.$this->module->active); 
+		header('x-id_address_delivery:'.$cart->id_address_delivery ); 
+		header('x-id_address_invoice:'. $cart->id_address_invoice ); 
         if ($this->module->active == false
             || !$this->context->cart->id_address_delivery
             || !$this->context->cart->id_address_invoice)
@@ -28,6 +32,9 @@ class Mobilpay_CcAlfavalidationModuleFrontController extends ModuleFrontControll
             }
 
 			$cart = $this->context->cart;
+			file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", print_r($this->context , true)."\r\n", FILE_APPEND);
+  
+
 
 			if ($cart->id_customer == 0 || $cart->id_address_delivery == 0 || $cart->id_address_invoice == 0 || !$this->module->active) {
 				Tools::redirect('index.php?controller=order&step=1');
@@ -87,6 +94,13 @@ class Mobilpay_CcAlfavalidationModuleFrontController extends ModuleFrontControll
 			);
 
 		
+		$this->context->smarty->assign([
+            'errorType' => $this->errorType,
+            'errorCode' => $this->errorCode,
+            'errorMessage' => $this->errorMessage
+        ]);
+		$this->setTemplate('module:mobilpay_cc/views/templates/front/alfavalidation.tpl');
+		
 		// /**
 		//  * Temporary
 		//  */
@@ -94,5 +108,9 @@ class Mobilpay_CcAlfavalidationModuleFrontController extends ModuleFrontControll
 		// echo $this->errorCode;
 		// echo $this->errorMessage;
 		// return true;
+	}
+
+	public function doCheck(){
+		file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", " HERE IS DO CHECK INSIDE OF ALFA \r\n", FILE_APPEND);
 	}
 }

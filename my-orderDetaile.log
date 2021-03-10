@@ -1,28 +1,4 @@
-Step #1 -> Mobilpay_CC -> hookPaymentOptions 
 ====> HELOO ALFA <====
-====> HELOO ALFA <====
-Step #1 -> Mobilpay_CC -> hookPaymentOptions 
-Validation.php -> Step #2
-IPN -> Data Posted to IPN
-   - IPN -> Action confirmed
-IPN -> objOrderID -> 134#1615277073
----- IPN -> objPmReq->orderId 
----- IPN -> realOrderId -> 134
----- IPN -> getOrderByCartId -> 134
-IPN -> NULL -> Before Order Register . 
----- IPN -> BEFORE -> Alfa VALIDATION 
-http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation
-/home/ctbhub/public_html/navid/modules/mobilpay_cc
----- IPN -> AFTER -> Alfa VALIDATION 
-Validation.php -> Step #2
-IPN -> Data Posted to IPN
-   - IPN -> Action confirmed
-IPN -> objOrderID -> 134#1615277073
----- IPN -> objPmReq->orderId 
----- IPN -> realOrderId -> 134
----- IPN -> getOrderByCartId -> 134
-IPN -> NULL -> Before Order Register . 
----- IPN -> BEFORE -> Alfa VALIDATION 
-http://navid.ctbhub.com/en/module/mobilpay_cc/alfavalidation
-/home/ctbhub/public_html/navid/modules/mobilpay_cc
----- IPN -> AFTER -> Alfa VALIDATION 
+====> before post <====
+====> is post <====
+====> has params <====

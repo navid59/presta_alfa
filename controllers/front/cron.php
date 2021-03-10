@@ -18,7 +18,7 @@ class Mobilpay_CcCronModuleFrontController extends ModuleFrontController
         // Additional token checks
 
         // ...
-
+        file_put_contents("/home/ctbhub/public_html/navid/modules/mobilpay_cc/my-orderDetaile.log", "====> CRON. CONTROLLER  <===="."\r\n", FILE_APPEND);
         $this->ajaxDie("hello\n");
     }
 }
